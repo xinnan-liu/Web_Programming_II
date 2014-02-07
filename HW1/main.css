@@ -1,0 +1,111 @@
+body{
+	padding:2em;
+	font-size:large;
+	font-weight:bold;
+	color:blue;
+	background-color:rgba(200,200,200,0.6);
+	
+}
+
+p{
+	font-size:medium;
+	font-style:normal;
+}
+
+p>test{
+	font-size:xx-large;
+	font-style:oblique;
+	font-weight:800;
+	color:red;
+}
+
+p>a:link,p>a:visited{
+	background-color:yellow;
+}
+
+h1{
+	font-size: medium;
+	font-style:normal;
+	font-weight:600;
+	visibility:visible;
+	color:black;
+}
+
+h2{
+	font-size: large;
+	font-style:oblique;
+	font-weight:1000;
+	color:rgba(100,200,100,0.8);
+}
+
+a:link{
+	background-color:yellow;
+}
+
+a:visited{
+	background-color:grey;
+}
+
+div{
+	-moz-column-count:3; /* Firefox */
+	-webkit-column-count:3; /* Safari and Chrome */
+	column-count:3;
+
+	-moz-column-gap:2em; /* Firefox */
+	-webkit-column-gap:2em; /* Safari and Chrome */
+	column-gap:2em
+
+	-moz-column-rule:0.2em outset #ff00ff; /* Firefox */
+	-webkit-column-rule:0.2em outset #ff00ff; /* Safari and Chrome */
+	column-rule:0.2em outset #ff00ff;
+}
+
+div p{
+	font-family: 'Iceland', cursive;
+	font-size:large;
+	color:black;
+	text-shadow:0 0 3px #FF0000;
+}
+
+
+div a:link{
+	background-color:rgba(200,200,200,0.6);
+}
+
+div a:hover{
+	background-color:red;
+}
+
+ul{
+	list-style-type:square;
+}
+
+cursor1{
+	cursor:wait;
+	font-size:medium;
+	color:black;
+}
+
+cursor2{
+	cursor:crosshair;
+	font-size:medium;
+	color:black;
+}
+
+cursor3{
+	cursor:text;
+	font-size:medium;
+	color:black;
+}
+
+cursor4{
+	cursor:pointer;
+	font-size:medium;
+	color:black;
+}
+
+cursor5{
+	cursor:default;
+	font-size:medium;
+	color:black;
+}

@@ -1,0 +1,38 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("p.click").click(function(){
+  $("li").css({"color":"red","list-style-type":"none","font-weight":"bold","font-size":"x-large"});
+  });
+	
+  $("p.dblclick").dblclick(function(){
+	  $("p").siblings().css({"font-weight":"bold","font-size":"large"});
+  });
+});
+</script>	
+</head>
+<body>
+	
+<h1>Transform, Transition & JQuery</h1>
+	
+<p class="dblclick">Stocks and bonds are financial instruments for investors to obtain a return and for companies to raise capital. Put very simply, stocks offer an ownership stake in the company and bonds are akin to loans made to the company.
+Stocks of a company are offered at the time of an IPO (Initial Public Offering) or later equity sales. The company offers investors an ownership stake by selling stocks. Stocks can be either common stock or preferred stock. Preferred stock is further divided into participating and non-participating preferred stock.
+With the equity that stocks offer comes greater risk. The value of stocks corresponds to the value of the company and therefore, stock price fluctuates depending upon how the market values the company.
+In contrast, bonds are loans offered at a fixed interest rate. When a company believes that it can raise capital cheaper by borrowing money from banks, institutional investors or individuals, they may choose to offer interest-paying corporate bonds. With bonds, an investor is promised a fixed return. While bonds are "safer" than stocks because of lower volatility, it should be noted that there is always a chance that company will be unable to repay bond-holders. In that sense, bonds are not "risk-free".</p>
+
+<p class="click">Click here you will find different with the list!!!</p>
+	
+	<ul>
+		<li id="test1">test1</li>
+		<br>
+		<li id="test2">test2</li>
+		<br>
+		<li id="test3">test3</li>
+	</ul>
+	
+</body>
+</html>

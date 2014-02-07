@@ -1,0 +1,49 @@
+body{
+	padding:2em;
+	font-size:large;
+	font-weight:bold;
+	color:blue;
+	background-color:rgba(200,200,200,0.6);
+	
+}
+
+.banner{
+	height:10%;
+	font-size:xx-large;
+	color:red;
+	margin-bottom:1em;
+}
+
+.container {
+  display: flex;
+  flex-flow: row;
+}
+
+.main {
+ 	flex:1;
+	order:2;	
+}
+
+#deals {
+	display: flex;        
+	flex-flow: row wrap;  
+}
+.sale-item { 
+	display: flex;        
+	flex-flow: column;    
+	text-align:center;
+}
+.sale-item > img { 
+	order: -1;            
+	align-self: center;   
+}
+.sale-item > button {
+	margin-top: auto;   
+	margin-bottom:1em;
+}
+
+.left {
+  width:200px;
+	order:1;
+}
+
