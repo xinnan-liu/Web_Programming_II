@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/ -->
+<html lang="zh" version="g42dymwpi--nx"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+		<title>Node.js基础入门实例讲解</title>
+		<link type="text/css" rel="stylesheet" href="./Node.js基础入门实例讲解_files/meshcms.css"><link type="text/css" rel="stylesheet" href="./Node.js基础入门实例讲解_files/main.css">
+
+		
+
+<meta name="description" content="Node.js基础入门实例讲解">
+<meta name="keywords" content="node.js,node.js入门,node.js教程,expressjs">
+<meta http-equiv="Content-Language" content="zh"> 	
+		
+		<meta name="UYId" content="/technology/javautilities/20120904-node-js-for-beginners/index.html">
+		<meta name="author" content="GBin1中文互联 (http://www.gbin1.com)">
+		<meta name="google-site-verification" content="rOFOuV5VrNVRAKcmiqkjCk4vGj6JtDKfvcQU-mQLLdA">
+		<meta name="geo.region" content="CN-11">
+		<meta name="geo.placename" content="beijing">
+		<meta name="geo.position" content="39.904214;116.407413">
+		<meta name="ICBM" content="39.904214, 116.407413">
+		<link rel="shortcut icon" href="http://www.gbin1.com/gbin1/common/images/gbin1.ico">
+		<link rel="stylesheet" type="text/css" href="./Node.js基础入门实例讲解_files/superfish.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="./Node.js基础入门实例讲解_files/superfish-navbar.css" media="screen">
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript" async="" src="./Node.js基础入门实例讲解_files/ga.js"></script><script type="text/javascript" src="./Node.js基础入门实例讲解_files/jquery-1.4.4.min.js"></script><style type="text/css"></style>
+		<!--[if IE 6]>
+		<script type="text/javascript" src="/gbin1/common/js/supersleight.min.js"></script>
+		<![endif]-->
+		<script type="text/javascript" src="./Node.js基础入门实例讲解_files/hoverIntent.js"></script>
+		<script type="text/javascript" src="./Node.js基础入门实例讲解_files/superfish.js"></script>
+		<script type="text/javascript" src="./Node.js基础入门实例讲解_files/jquery.easing.min.js"></script>	
+		<script type="text/javascript" src="./Node.js基础入门实例讲解_files/jquery.lavalamp.min.js"></script>	
+		<script type="text/javascript" src="./Node.js基础入门实例讲解_files/scrolltopcontrol.js"></script>	
+		<script type="text/javascript" src="./Node.js基础入门实例讲解_files/jquery.cookie.js"></script>
+		<script src="./Node.js基础入门实例讲解_files/waypoints.min.js"></script>
+		<script src="./Node.js基础入门实例讲解_files/gbin1common.js"></script>
+		<script src="./Node.js基础入门实例讲解_files/gbin12column.js"></script>
+
+		<script src="./Node.js基础入门实例讲解_files/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./Node.js基础入门实例讲解_files/jquery.dataTables.css" media="screen">		
+		<script src="./Node.js基础入门实例讲解_files/jquery.flippy.min.js" type="text/javascript"></script>		
+<script src="./Node.js基础入门实例讲解_files/logger.js"></script><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script><link href="./Node.js基础入门实例讲解_files/bdsstyle.css" rel="stylesheet" type="text/css"></head>
+<body screen_capture_injected="true" ryt13059="1"><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="bds_more">更多...</a></li></ul><p><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" class="goWebsite">百度分享</a></p></div></div></div>
+
+   
+
+<div id="blog">
+<div class="container">
+	<header>
+		<a title="gbin1" href="http://www.gbin1.com/">
+			<img id="logo" src="./Node.js基础入门实例讲解_files/logo.png" alt="www.gbin1.com logo">
+		</a>
+		<nav>
+			
+<ul class="gbin1Style">
+  <li class="current"><a href="http://www.gbin1.com/">GB&#8226;首页</a>
+  </li>
+  <li><a href="http://www.gbin1.com/bloghome.html">GB&#8226;博客</a>
+  </li>
+  <li><a href="http://www.gbin1.com/tutorials">专题&#8226;教程</a>
+  </li>
+  <li><a href="http://www.gbin1.com/technology/" class="selected">技术&#8226;开发</a>
+  </li>
+  <li><a href="http://www.gbin1.com/tools">设计&#8226;界面</a>
+  </li>
+  <li><a href="http://www.gbin1.com/internet">新闻&#8226;快讯</a>
+  </li>
+  <li><a href="http://www.gbin1.com/portfolio">关于&#8226;工具</a>
+  </li>
+<li class="back" style="left: 0px; width: 103px;"><div class="left"></div></li></ul>
+		</nav>
+	</header>	
+	<div class="content">
+		<div style="position:absolute;left:-30px;top:0;width:35px;height:135px;padding:0px;border:1px solid #111;float:right;background:#404040;text-align:center;border-radius: 5px 5px 5px 5px;">
+			<div style="width:35px;height:35px;padding:5px 0px">
+				<a href="http://www.gbin1.com/" title="当前首页模式"><img src="./Node.js基础入门实例讲解_files/home.png" alt="首页风格"></a>
+			</div>
+			<div style="width:35px;height:35px;padding:5px 0px"><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" id="portalmode" title="设置首页为门户模式"><img src="./Node.js基础入门实例讲解_files/portal.png" alt="门户" border="1"></a></div>
+			<div style="width:35px;height:35px;padding:5px 0px"><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" id="blogmode" title="设置首页为博客模式"><img src="./Node.js基础入门实例讲解_files/blog.png" alt="博客" border="1"></a></div>
+			<div id="tipforhome" style="display:none;background:#505050;text-align:center;color:#FFF;padding: 3px 1px">保存</div>
+		</div>
+		<nav class="blognav">
+			
+<ul class="sf-menu sf-navbar sf-js-enabled sf-shadow">
+  <li><a href="http://www.gbin1.com/">GB&#8226;首页</a>
+  </li>
+  <li><a href="http://www.gbin1.com/bloghome.html">GB&#8226;博客</a>
+  </li>
+  <li><a href="http://www.gbin1.com/tutorials" class="sf-with-ul">专题&#8226;教程<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/tutorials/html5-tutorial">HTML5教程</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tutorials/gbcollection" class="sf-with-ul">GBin1月刊<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013march">2013年三月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013february">2013年二月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013january">2013年一月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012december">2012年十二月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012november">2012年十一月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012october">2012年十月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012september">2012年九月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012august">2012年八月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012july">2012年七月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012june">2012年六月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013september">2013年九月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013june">2013年六月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013april">2013年四月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013august">2013年八月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013may">2013年五月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013july">2013年七月GBin1月刊</a>
+      </li>
+    </ul>
+    </li>
+    <li><a href="http://www.gbin1.com/tutorials/hotspot">GBin1每周热点</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing" class="sf-with-ul">技术专题分享<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130418-knowledge-sharing-no3">技术专题003</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130412-knowledge-sharing-no2">技术专题002</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130408-knowledge-sharing-no1">技术专题001</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130508-knowledge-sharing-no4">极客技术专题【004期】：Web开发人员的必备工具 - Emmet (Zen Coding)基本使用</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130812-knowledge-sharing-no6">极客技术专题【006期】：jQuery初学者入门-DOM操作</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130826-knowledge-sharing-no9">极客技术专题【009期】：web技术开发小技巧</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130819-knowledge-sharing-no8">极客技术专题【008期】：CSS3核心技术：选择器</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130819-knowledge-sharing-no7">极客技术专题【007期】：jQuery初学者入门 - jQuery Event</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130828-knowledge-sharing-no10">极客技术专题【010期】：jQuery初学者入门 - jQuery effects</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130902-knowledge-sharing-no11">极客技术专题【011期】：EasyUI初级教程</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130806-knowledge-sharing-no5">极客技术专题【005期】：jQuery初学者入门</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130923-knowledge-sharing">【2013/09/23-2013/09/28】本周极客标签在线技术分享</a>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/technology/" class="selected sf-with-ul">技术&#8226;开发<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/technology/html">HTML</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/css">CSS</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/javascript">JS</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquery">jQuery开发</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquerytutorial">jQuery教程</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquerynews">jQuery插件</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jqueryhowto">jQ代码大全</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jqueryplugins">jQ插件大全</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquerymobile">jQ移动开发</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/onlinequiz" class="sf-with-ul">web技术测试<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120126basicphp">PHP基础知识小测验</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20111208webdevelopmentabbreviation">web开发技术缩写小测验，看看你知道多少？</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20111207html5elementsquiz">分享一个在线的HTML5元素在线测验 : HTML5 Element Quiz</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20111204basicquiz">CSS3基础知识小测验</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/jqueryquiz">jQuery技术在线小测试</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120320sqlquiz">你真的了解SQL吗？ 试试SQL的小测验吧！</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120417jquerybasequiz">jQuery小测试系列之jQuery基础知识</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120414htmltagquiz">你真的很了解HTML标签吗？ 试试这个超异类的HTML标签小测验吧！</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120221quizhtml5ceyan">HTML5基本知识小测验</a>
+      </li>
+    </ul>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/javautilities/" class="selected">编程语言</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/seo">SEO</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/democenter" class="sf-with-ul">在线演示<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/technology/democenter/20120918-flip-animal-photobook">A Photo Book Content Flip Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120914-jqueryplugin-for-validation-happyjs">Happy.js Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120726-html5-sortable-jqueryplugin">GBin1 HTML5 Sortable Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120815-jqueryplugin-dragndrop-gridster">gridster.js Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120813-css-animation-timeline" class="sf-with-ul">GBtags.com demo for horizontal timeline<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120813-css-animation-timeline/index2.html">GBtags.com demo for vertial timeline</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120905-jquery-plugin-bigvideojs">BigVideo.js demo - jQuery Plugin for Big Background Video</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120820-jqueryplugin-noty">Nody demo for confirmation dialog</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120831-fold-up-html-elements-like-paper">Fold up demo by gbin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120827-icon-font-usage">web font demo by gbin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120720jsoupjquerysnatchpage" class="sf-with-ul">GBin1页面元素自动抓取工具 demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120720jsoupjquerysnatchpage/siteproxy.jsp">jsoup Demo</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120619jquery-plugin-percentageloader">超酷HTML5进度条jQuery插件demo - percentageloader</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120808javasript-yibiao-gaugejs">Gauge.js Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120831-jqueryplugin-for-responsive-picture">A jQuery plugin for responsive images | Jquery Picture demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar" class="sf-with-ul">jBar Plugin Demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar/index4.html">jBar Plugin Demo</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar/index2.html">jBar Plugin Demo</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar/index3.html">jBar Plugin Demo</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120812-animate-css">Car in a Cage: Animate.css Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120907-jquery-plugin-smart-time-ago">Smart Time Ago Demo By GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker" class="sf-with-ul">HTML5 Color Picker (canvas) Demo- Var 1 | Script Tutorials<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index3.html">HTML5 Color Picker (canvas) Demo - Var 3 | Script Tutorials</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index2.html">HTML5 Color Picker (canvas) Demo- Var 2 | Script Tutorials</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index5.html">HTML5 Color Picker (canvas) Demo- Var 5| Script Tutorials</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index4.html">HTML5 Color Picker (canvas) Demo - Var 4 | Script Tutorials</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120924-responsive-layout-jquery-plugin-freetile">Freetile Demo for 1000 different size elements</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/weather-forecast">Weather Forecast Demo with jQuery &amp; Yahoo APIs</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121019-javascript-datepicker-pikaday">Pikaday Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120612js-lib-for-event-timeline-chronoline">Chronoline.js Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120617jquery-css-fullscreen-slider">Fullscreen Slit Slider with CSS3 and jQuery Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120903-jquery-plugin-complexify">密码强度/Password Strength Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120802-fixie-add-html-content">Fixie.js Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120807-css3-flipswitch">ON/OFF Flipswitch Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120918-javascript-create-pdf">jsPDF demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120728-iphone-style-nav">iOS风格导航Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120901-jquery-plugin-simple-slidershow">Really Simple Slideshow jQuery Plugin Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120906-super-cool-navigation-bar">Cool Navigation Menu Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120629create-mac-lion-scroll-bar">使用jQuery插件jScrollPane开发Mac OSX Lion风格的滚动条 Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121025-jquery-rss-feed-magazine">gbin1 rss feed magazine demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120730-css3-grid-system-responsiveaeon">Responsive Aeon Framework - Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120905-animation-writing">An old letter demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120823-gauge-justgage-js">JustGage Demo By GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120622css-3d-button">Pure CSS Minimal Buttons Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120731-kadaiji-html5-audio-player">Old School Cassette Player with HTML5 Audio Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120905-register-with-password-strength">gbtags.com在线注册demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120702refineslide">RefineSlide 幻灯演示Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120716-dribbble-feed-by-jquery-css3" class="sf-with-ul">如何使用jQuery, CSS3和javascript来访问Dribbble API - Demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120716-dribbble-feed-by-jquery-css3/dribbble-call.jsp">Dribbble-call</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20120716-dribbble-feed-by-jquery-css3/dribbble-call.php">Dribbble-call</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120813-image-animation-jquery-plugin-jzoopraxiscope">JZoopraxiscope Demo - jQuery plugin for making animations - gbin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120911-wave-animation-navigation-by-jquery">Wave effect navigation menu demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120926-jquery-slider-cycle2">Cycle2 Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120927-tilt-controlled-images-lenticularjs">Tilt controll image Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120526jquery-plugin-alajax" class="sf-with-ul">ALAJAX DEMO<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120526jquery-plugin-alajax/action.html">ALAJAX DEMO ACTION URL</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120704-backbone-notifier">GBin1 Backbone.notifier Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120925-javascript-database-taffydb">TaffyDB Demo for js database</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120920-tooltips-jquery-plugin">Tooltip demo - jQuery Plugin for tooltips</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120615jquery-easy-page-guide">GBin1博客 - 用户向导demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121018-jquery-plugin-timing">Timing Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120710-vanity-jquery-plugins">jSlider Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120814-dojo-mobile">dojox/mobile Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120524juicebox-lite">Juicebox Gallery Demo</a>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/tools" class="sf-with-ul">设计&#8226;界面<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/tools/design">设计&#8226;模板</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/icon">图标&#8226;素材</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/photoshop">PS&#8226;工具</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/websitetemplate" class="sf-with-ul">网站&#8226;模板<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130510-website-templates">本周推荐10款免费的网站模板设计</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20131209-website-templates">本周推荐10款免费的网站模板设计</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20120417blacksinglepage" class="sf-with-ul">分享一个黑色系的Single page单页面网站模板<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120417blacksinglepage/demo.html">Black single page demo</a>
+        </li>
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120417blacksinglepage/download.html">本地demo演示下载</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130111-free-template-for-bootstrap">免费的Bootstrap网站模版 - Bootstrapper</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20121016-free-admin-templates">分享12套超酷的后台管理员界面网站模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130331-free-bootstrap-admin-template">免费的响应式bootstrap管理员后台界面主题 - Charisma</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20120507free-wordpress-themes" class="sf-with-ul">分享3个超棒的免费wordpress主题: Splus, EMagazine和BAGONG<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120507free-wordpress-themes/download.html">本地素材demo主题下载</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20121111-latest-new-website-templates">分享45套2011年和2012年的高质量免费网站模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130816-website-templates">10个好用的集资网站博客系统主题模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20120917-flash-template" class="sf-with-ul">免费网站模版：一个黑色系的公司网站模版（flash幻灯）<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120917-flash-template/download.html">本地模版demo下载</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130418-responsive-html5-templates">分享两套免费的超棒响应式HTML5网站模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130405-free-website-templates">本周推荐9款免费的网站模板设计</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20131103-responsive-website-template">响应式的单页面网站模板 - Brushed</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20121230-free-wordpress-templates">2012年12月免费的wordpress主题大荟萃</a>
+      </li>
+    </ul>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/websitetemplatedemo" class="sf-with-ul">Websitetemplatedemo<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tools/websitetemplatedemo/20120917-flash-template" class="sf-with-ul">GBin1 Template Demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplatedemo/20120917-flash-template/about.html">GBin1 Template Demo</a>
+        </li>
+      </ul>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/internet" class="sf-with-ul">新闻&#8226;快讯<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/internet/news">科技&#8226;产品</a>
+    </li>
+    <li><a href="http://www.gbin1.com/internet/mobile">移动&#8226;应用</a>
+    </li>
+    <li><a href="http://www.gbin1.com/internet/people">人物&#8226;互联</a>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/portfolio" class="sf-with-ul">关于&#8226;工具<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/portfolio/about">关于&#8226;我们</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/gbin1search">搜索&#8226;工具</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/friendlinks">友情&#8226;链接</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/case">案例&#8226;欣赏</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/submitarticle">文章&#8226;投递</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/lastest.html">最新&#8226;文章</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+			<ul class="aux">
+				<li><a href="http://feed.feedsky.com/GBin1" target="_blank"><img src="./Node.js基础入门实例讲解_files/rss.png" alt="RSS"></a></li>
+				<li><a href="http://list.qq.com/cgi-bin/qf_invite?id=3a04fd5eecec76c265e2c2daf4a68483bac85c55d333c17e" target="_blank"><img src="./Node.js基础入门实例讲解_files/mail.png" alt="Mail"></a></li>
+				<li><a href="http://m.gbin1.com/" target="_blank"><img src="./Node.js基础入门实例讲解_files/wap.png" alt="Mobile"></a></li>
+				<li><a href="http://weibo.com/1740310620/profile" target="_blank"><img src="./Node.js基础入门实例讲解_files/sinaweibo.png" alt="weibo.com"></a></li>
+				<li><a href="http://www.gbin1.com/portfolio/submitarticle"><img src="./Node.js基础入门实例讲解_files/article.png" alt="submit article"></a></li>
+			</ul>
+			<form class="search" action="">
+				<input type="text" name="s" id="s" class="formtip" value="">
+				<input type="image" class="btn" src="./Node.js基础入门实例讲解_files/btn_search.gif" id="searchgbin1">
+			</form>
+		</nav>
+		<!-- google_ad_section_start --> 
+		<section class="blogbody">
+			<div id="pagebody">
+				<h1 class="title">Node.js基础入门实例讲解</h1>
+					<div style="border-left:3px solid #444;border-radius:5px;border-bottom:0px solid #333;width:687px;padding:5px 0 10px;height:20px;box-shadow:0px 0px 8px #333;margin-bottom:15px;">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-4879975111677652";
+		/* ??×????á·ù468x15 */
+		google_ad_slot = "6708586713";
+		google_ad_width = 468;
+		google_ad_height = 15;
+		//-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+
+				
+				
+				
+					<p>日期：2012-9-4&nbsp;&nbsp;来源：<a href="./Node.js基础入门实例讲解_files/Node.js基础入门实例讲解.html">GBin1.com</a></p>
+				
+					
+<p><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/index.html" target="_blank" title="Node.js基础入门实例讲解"><img src="./Node.js基础入门实例讲解_files/title.jpg" alt="Node.js基础入门实例讲解" width="600" height="298"></a> </p><p>事件驱动的编程对于初学者来说可能有点儿困难，正是这个原因使得<a href="http://www.gbin1.com/bloghome.html?tag=node.js" target="_blank" title="node.js">node.js</a>对于初学者来说不是那么容易。但是不要觉得有压力，在今天的这篇教程中，我们将给大家介绍node.js的入门知识，并且讲解为什么<a href="http://www.gbin1.com/bloghome.html?tag=node.js" target="_blank" title="node.js">node.js</a>会如此的流行。</p><h2>介绍</h2><p>在开始介绍<a href="http://www.gbin1.com/bloghome.html?tag=node.js" target="_blank" title="node.js">node.js</a>之前，你需要了解传统的服务器端应用（PHP，JSP，Ruby，Python）和<a href="http://www.gbin1.com/bloghome.html?tag=node.js" target="_blank" title="node.js">node.js</a>的区别。</p><h3>异步编程</h3><p>如果你了解异步（Asynchronous）编程的话，将会非常简单。 这里的A和Ajax里的”A"是同一个单词。在node.js中每一个方法都是异步的。因此事实上任何一个“阻断”线程的东西都运行在后台。这是大家需要务必了解的。例如，如果你尝试阅读一个文件，你需要指定一个Callback方法来控制阅读操作完成后的动作。</p><h3>你需要自己处理全部</h3><p>Node.js提供的是一个环境，这个环境中你需要自己处理所有事情。 所以呢，这里没有缺省的web服务器，或者类似服务器。对于新手来说可能有点恐怖，但是回报也是巨大的，你将得到超棒性能的web应用。一个脚本来处理所有客户端的通信。这很大程度的减少了应用消耗的资源。以下就是一个简单的node.js的例子：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">var i, a, b, c, max;<br> <br>max = 1000000000;<br> <br>var d = Date.now();<br> <br>for (i = 0; i &lt; max; i++) {<br>    a = 1234 + 5678 + i;<br>    b = 1234 * 5678 + i;<br>    c = 1234 / 2 + i;<br>}<br> <br>console.log(Date.now() - d);</pre><p>类似的PHP代码如下：</p><pre>$a = null;<br>$b = null;<br>$c = null;<br>$i = null;<br>$max = 1000000000;<br> <br>$start = microtime(true);<br> <br>for ($i = 0; $i &lt; $max; $i++) {<br>    $a = 1234 + 5678 + $i;<br>    $b = 1234 * 5678 + $i;<br>    $c = 1234 / 2 + $i;<br>}<br> <br>var_dump(microtime(true) - $start);</pre><p>现在我们看看性能对比：</p><table border="0" width="338" height="104"><tbody><tr><td><strong>循环次数</strong><br></td> <td><strong>Node.js</strong></td> <td><strong>PHP</strong></td> </tr> <tr> <td>100</td> <td>2.00</td> <td>0.14</td> </tr> <tr> <td>10’000</td> <td>3.00</td> <td>10.53</td> </tr> <tr> <td>1’000’000</td> <td>15.00</td> <td>1119.24</td> </tr> <tr> <td>10’000’000</td> <td>143.00</td> <td>10621.46</td> </tr> <tr> <td>1’000’000’000</td> <td>11118.00</td> <td>1036272.1</td></tr></tbody></table><p>大家可以看到，使用PHP在小数据的循环中占有优势，但是对于大数据量的循环，node.js将会比PHP快93%。</p><h2>模块</h2><p>node.js使用了模块化的架构体系来简化复杂应用。模块类似于C的类库和pascal中的unit。每一个模块包含了相关主题的一套功能。例如，你可以使用http模块来处理HTTP相关的功能。同时node.js提供了一些核心的类库帮助你访问文件系统中的文件，创建HTTP和TCP/UDP服务器，及其其它相关的实用功能。</p><p>包含一个模块非常简单，如果你使用过Dojo的话，你肯定熟悉require方法，如下：</p><pre>var http = require('http');</pre><p>require()方法返回指定模块的参考。在这个代码中，一个HTTP模块的参考将保存在http变量中。</p><p>在以上代码中，我们传递了模块的名字到require()方法。这是的Node搜索node_module目录来查询http模块，如果没有找到模块，将会到全局模块缓存中查询。你可以指定一个实际的文件，如下：</p><pre>var myModule = require('./myModule.js');</pre><p>模块包含了代码片段。模块中的代码大部分是私有的 ，这意味你不能在外部直接访问变量。只能在模块内部访问。当然，你可以使用expose来将变量或者方法倒出模块，这样你可以在模块外部使用，如下：</p><pre>var PI = Math.PI;<br> <br>exports.area = function (r) {<br>  return PI * r * r;<br>};<br> <br>exports.circumference = function (r) {<br>  return 2 * PI * r;<br>};</pre><p>这个代码中，PI是一个私有的模块变量。下面两个方法将给予exports对象创建。这些方法能够在模块外部被访问因为它们基于exports方法。因此，你可以保证area()和circumference()将会按照它们原本的行为来实现操作。</p><h2>全局变量</h2><p>node.js基于google的v8 javascript引擎，所以我们需要遵守客户端的最佳实践。例如，我们需要避免将任何内容知道全局变量中。当然，不是任何情况都可以做到的。Node中使用的全局范围是GLOBAL，你可以通过忽略var关键字来定义一个全局变量：</p><pre>globalVariable = 1;<br>globalFunction = function () { ... };</pre><h2>安装</h2><p>在使用Node.js之前，你需要安装它。 安装过程非常简单，如果你使用windows或者OS x，nodejs.org提供了不同操作系统下的安装包，对于Linux来说，你可以使用任何的打包工具。打开你的终端，输入：</p><pre>sudo apt-get update<br>sudo apt-get install node</pre><p>或者：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">sudo aptitude update<br>sudo aptitude install node</pre><p>Node.js位于sid repositories，你可以添加它们到你的列表里：</p><pre>sudo echo deb http://ftp.us.debian.org/debian/ sid main &gt; /etc/apt/sources.list.d/sid.list<br></pre><p>注意在旧系统中安装sid包可能会破坏你的系统。所以当心，安装完node后请移除/etc/apt/sources.list.d/sid.list</p><h2>安装新模块</h2><p>Node.js拥有一个包管理器，叫做Node Package Manager(NPM)。自动随node.js安装，你可以使用NPM来安装模块。执行如下语句：</p><pre>npm install module_name</pre><p>不管你使用何种OS，上面语句会安装指定的模块名称</p><h2>Hello World 应用</h2><p>很自然，我们第一个Node.js脚本将打印Hello world到控制台。如下：</p><pre>console.log('Hello World, GBin1!');</pre><p>我们保存以上脚本为hello.js。打开终端/命令行，找到hello.js，执行如下：</p><pre>node hello.js</pre><p>你应该在控制台看到'hello world, GBin1!'字样。</p><h2>HTTP Server </h2><p>下面我们开发一个更复杂的应用，当让也不是那么复杂。请先看看如下代码http.js：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">// Include http module.<br>var http = require("http");<br> <br>// Create the server. Function passed as parameter is called on every request made.<br>// request variable holds all request parameters<br>// response variable allows you to do anything with response sent to the client.<br>http.createServer(function (request, response) {<br>   // Attach listener on end event.<br>   // This event is called when client sent all data and is waiting for response.<br>   request.on("end", function () {<br>      // Write headers to the response.<br>      // 200 is HTTP status code (this one means success)<br>      // Second parameter holds header fields in object<br>      // We are sending plain text, so Content-Type should be text/plain<br>      response.writeHead(200, {<br>         'Content-Type': 'text/html'<br>      });<br>      // Send data and end response.<br>      response.end('Welcome to &lt;a href="http://www.gbin1.com"&gt;GBin1.com&lt;/a&gt;!');<br>   });<br>// Listen on the 8080 port.<br>}).listen(8080);</pre><p>代码其实并不复杂，你可以看到我们使用response.write()将数据传递到客户端，当然必须在response.end()之前调用。保存代码，然后在控制台执行：</p><pre>node http.js</pre><p>打开任何浏览器，输入http://localhost:8080，你可以看到"Welcome to <a href="http://www.gbin1.com/" target="_blank" title="gbin1">GBin1.com</a>!"出现在页面上。 </p><p><img src="./Node.js基础入门实例讲解_files/1.jpg" alt="Node.js基础入门实例讲解" width="502" height="230"> </p><h2>处理URL参数</h2><p>正如前面我们提到的，我们需要自己处理Node.js中的任何东西，包括处理参数，其实非常简单，如下：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">// Include http module, <br>var http = require("http"), <br>// And url module, which is very helpful in parsing request parameters. <br>   url = require("url"); <br> <br>// Create the server. <br>http.createServer(function (request, response) { <br>   // Attach listener on end event. <br>   request.on('end', function () { <br>      // Parse the request for arguments and store them in _get variable. <br>      // This function parses the url from request and returns object representation. <br>      var _get = url.parse(request.url, true).query; <br>      // Write headers to the response. <br>      response.writeHead(200, { <br>         'Content-Type': 'text/plain'<br>      }); <br>      // Send data and end response. <br>      response.end('Here is your data: ' + _get['data']); <br>   }); <br>// Listen on the 8080 port. <br>}).listen(8080);<br></pre><p>这个代码使用url模块的parse()方法，来将请求的URL转换为一个对象。返回的对象拥有一个query属性，可以用来取得URL参数。保存这段代码为get.js并且执行：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">node get.js</pre><p>打开浏览器并且输入地址http://localhost:8080/?data=put_gbstring_here。你将看到效果。</p><h2>写入和读取文件</h2><p>我们在node.js中使用fs模块来管理文件。使用fs.readFile()和fs.writeFile()方法来读取和写入文件，请看如下代码：</p><pre>// Include http module,<br>var http = require("http"),<br>// And mysql module you've just installed.<br>   fs = require("fs");<br> <br>// Create the http server.<br>http.createServer(function (request, response) {<br>   // Attach listener on end event.<br>   request.on("end", function () {<br>      // Read the file.<br>      fs.readFile("test.txt", 'utf-8', function (error, data) {<br>         // Write headers.<br>         response.writeHead(200, {<br>            'Content-Type': 'text/plain'<br>         });<br>         // Increment the number obtained from file.<br>         data = parseInt(data) + 1;<br>         // Write incremented number to file.<br>         fs.writeFile('test.txt', data);<br>         // End response with some nice message.<br>         response.end('This page was refreshed ' + data + ' times!');<br>      });<br>   });<br>// Listen on the 8080 port.<br>}).listen(8080);</pre><p>将以上代码保存为file.js，然后创建一个test.txt文件到同一个目录下。</p><p>代码展示如何使用fs.readFile()和fs.writeFile()。每一次服务器收到一个请求，脚本就会自动添加1，然后写回文件。fs.readFile()方法接受3个参数：文件名称，编码，callback方法。</p><p>写入文件，在这个例子中，非常简单。我们不需要等待任何结果，虽然你仍旧处理错误。fs.writeFile()方法接受文件名称和数据作为参数。同时接受第三个和第四个参数（都是可选的）来指定编码和callback方法。运行脚本：</p><pre>node files.js</pre><p>打开浏览器，输入http://localhost:8080，刷新页面几次。看看结果好像有bug，这里每次加了2。其实这不是一个错误。每一次你请求这个URL的时候，俩个请求被发送到服务器。第一个请求是浏览器自动请求的 favion.ico。当然第二个请求是我们脚本对应URL（http://localhost:8080）</p><p>为了解决这个问题，我们修改代码如下：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">// Include http module,<br>var http = require("http"),<br>// And mysql module you've just installed.<br>   fs = require("fs");<br> <br>// Create the http server.<br>http.createServer(function (request, response) {<br>   // Attach listener on end event.<br>   request.on('end', function () {<br>      // Check if user requests /<br>      if (request.url == '/') {<br>         // Read the file.<br>         fs.readFile('test.txt', 'utf-8', function (error, data) {<br>            // Write headers.<br>            response.writeHead(200, {<br>               'Content-Type': 'text/plain'<br>            });<br>            // Increment the number obtained from file.<br>            data = parseInt(data) + 1;<br>            // Write incremented number to file.<br>            fs.writeFile('test.txt', data);<br>            // End response with some nice message.<br>            response.end('This page was refreshed ' + data + ' times!');<br>         });<br>      } else {<br>         // Indicate that requested file was not found.<br>         response.writeHead(404);<br>         // And end request without sending any data.<br>         response.end();<br>      }<br>   });<br>// Listen on the 8080 port.<br>}).listen(8080);</pre><p>现在看看，结果是不是正确了。</p><h2>访问Mysql数据库 <br></h2><p>对于一个正常的服务器端技术，肯定需要有机制来处理数据库操作。为了在node.js中使用数据库，我们需要安装类库，这里我们使用node-mysql。完整的名称是mysql@2.0.0-alpha2(@后面是版本号）。打开你的控制台，导航到你保存脚本的目录，执行如下命令：</p><pre>npm install mysql@2.0.0-alpha2</pre><p>这将下载和安装模块，同时创建node_module目录到目前目录中。下面我们看看如何使用代码访问mysql：</p><pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;">// Include http module, <br>var http = require('http'), <br>// And mysql module you've just installed. <br>   mysql = require("mysql"); <br>     <br>// Create the connection. <br>// Data is default to new mysql installation and should be changed according to your configuration. <br>var connection = mysql.createConnection({ <br>   user: "root", <br>   password: "", <br>   database: "db_name"<br>}); <br> <br>// Create the http server. <br>http.createServer(function (request, response) { <br>   // Attach listener on end event. <br>   request.on('end', function () { <br>      // Query the database. <br>      connection.query('SELECT * FROM your_table;', function (error, rows, fields) { <br>         response.writeHead(200, { <br>            'Content-Type': 'x-application/json' <br>         }); <br>         // Send data as JSON string. <br>         // Rows variable holds the result of the query. <br>         response.end(JSON.stringify(rows)); <br>      }); <br>   }); <br>// Listen on the 8080 port. <br>}).listen(8080);</pre><p>查询数据库非常简单，输入查询语句和callback方法。在一个实际的应用中，你应该检查是否有错误！（一旦有错误，error参数将不会为undefined），并且发送响应代码基于查询成功或者失败，注意我们设定content-type为x-application/json，这是正确的JSON MIME类型。rows参数包含了查询结果，这里我们使用JSON，stringify()方法简单的将rows中的数据转换为JSON结构</p><p>保存脚本为mysql.js，执行：</p><pre style="width: 688px; border: 1px solid rgb(85, 85, 85); z-index: auto;">node mysql.js</pre><p>在浏览器中输入http://localhost:8080，你可以看到要求你下载JSON格式数据文件。</p><h2>总结</h2><p><a href="http://www.gbin1.com/bloghome.html?tag=node.js" target="_blank" title="node.js">node.js</a>要求你自己处理额外的开发内容，但是回报是更好的性能和健壮的应用。如果你不希望处理底层，你可以选择成熟的框架，例如，<a href="http://expressjs.com/" target="_blank" title="expressjs - gbin1.com">Express</a>，这样开发更加简单。</p><p><a href="http://www.gbin1.com/bloghome.html?tag=node.js" target="_blank" title="node.js">node.js</a>是一个很不错的技术并且非常适合高负荷的应用。并且已经被很多企业证明，例如，微软，eBay和Yahoo。如果你不确认该使用任何服务器，你可以考虑VPS或者云平台。都拥有比较好的价格。 希望大家喜欢这个入门级别的Node.js教程，如果你有任何问题，请在<a href="http://www.gbin1.com/" target="_blank" title="gbin1">GBin1</a>的浏览版中给我们留言，谢谢！ </p>
+
+					
+					<h2></h2>
+										
+				
+
+						
+				
+					
+						<p>来源：<a href="./Node.js基础入门实例讲解_files/Node.js基础入门实例讲解.html">Node.js基础入门实例讲解</a></p>
+					
+				
+				
+				
+			</div>
+			<div id="mainads" style="padding-left:0px;margin: 10px 0px 10px 0px">
+				<div style="border:8px solid #333;width:336px;float:left;height:280px">
+					<script type="text/javascript">/*336*280 mainads*/ var cpro_id = 'u887260';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
+				</div>
+				<div style="border:8px solid #333;width:336px;float:right;height:280px">
+					<script type="text/javascript">/*336*280 mainads*/ var cpro_id = 'u887260';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
+				</div>
+				<div style="clear:both"></div>
+				<div style="border:8px solid #333;width:336px;float:left;height:280px">
+					<script type="text/javascript">
+	<!--
+	google_ad_client = "ca-pub-4879975111677652";
+	/* gbin1content */
+	google_ad_slot = "1026207602";
+	google_ad_width = 336;
+	google_ad_height = 280;
+	//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+				</div>
+				<div style="border:8px solid #333;width:336px;float:right;height:280px">
+					<script type="text/javascript">
+	<!--
+	google_ad_client = "ca-pub-4879975111677652";
+	/* gbin1content */
+	google_ad_slot = "1026207602";
+	google_ad_width = 336;
+	google_ad_height = 280;
+	//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<h3>喜欢我们的文章请您与朋友分享:</h3>
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+        <a class="bds_qzone" title="分享到QQ空间" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#"></a>
+        <a class="bds_tsina" title="分享到新浪微博" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#"></a>
+        <a class="bds_tqq" title="分享到腾讯微博" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#"></a>
+        <a class="bds_renren" title="分享到人人网" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#"></a>
+        <span class="bds_more">?ü?à</span>
+		<a class="shareCount" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" title="累计分享4次">4</a>
+    </div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=193972" src="./Node.js基础入门实例讲解_files/bds_s_v2.js"></script>
+
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+<div style="clear:both"></div>
+
+
+			<h3></h3>
+			
+			<h3>留言</h3>
+			
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+// <![CDATA[
+  if (window.tinyMCE) {
+    tinyMCE.init({
+      mode : "exact",
+      theme : "simple",
+      elements : "mcc_text",
+      language : "zh_cn"
+    });
+  }
+// ]]>
+</script>
+
+<form name="mcc_left3" method="post" action="">
+<input type="hidden" id="post_modulecode" name="post_modulecode" value="meshcmsmodule_left3">
+<input type="hidden" id="delId" name="delId" value="">
+<input type="hidden" id="showId" name="showId" value="">
+<input type="hidden" id="hideId" name="hideId" value="">
+<div>
+
+<section id="comments">
+
+
+ <ol>
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./Node.js基础入门实例讲解_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.9958.pw/">rin</a>
+	</h3>
+    <p><em>此评论在等待批准中</em></p>
+		
+	  <div class="includedate">
+		2013-7-11 下午1:53
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./Node.js基础入门实例讲解_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">希有</a>
+	</h3>
+    <p><em>此评论在等待批准中</em></p>
+		
+	  <div class="includedate">
+		2013-4-23 下午9:24
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./Node.js基础入门实例讲解_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">1</a>
+	</h3>
+    <p><em>此评论在等待批准中</em></p>
+		
+	  <div class="includedate">
+		2013-4-7 下午3:51
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./Node.js基础入门实例讲解_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">发</a>
+	</h3>
+    nodejs资料很少啊  
+		
+	  <div class="includedate">
+		2012-11-22 下午3:19
+	  </div>
+			
+  </div>
+ </li>
+
+
+ </ol>
+
+
+ </section>
+
+ <div>
+  <h2 style="color:#5DB0E6">
+	友情提示：技术相关支持或者提问，请访问并且发布到<a href="http://www.gbtags.com/">极客标签社区</a>（gbtags.com），本站不支持任何技术问题。
+  </h2>
+ </div>
+ <div class="includeitem">
+  <div class="includetext">
+    <div><label for="mcc_name">您的姓名：</label></div>
+    <div><input type="text" name="mcc_name" id="mcc_name" class="formfields" maxlength="20" value=""></div>
+  </div>
+  
+  <div class="includeitem">
+    <div><label for="mcc_website">您的网站（可选）：</label></div>
+    <div><input type="text" name="mcc_website" id="mcc_website" class="formfields" maxlength="20" value=""></div>
+  </div>  
+  
+  <div class="includetext">
+    <div><label for="mcc_text">您的评论：</label></div>
+    <div><textarea name="mcc_text" id="mcc_text" class="formfields" rows="12" cols="80" style="height: 12em;"></textarea></div>
+  </div>
+  <div class="includetext">
+    
+    <div>
+      <label for="mcc_sum">贰壹 + 玖 =</label>
+      <input type="text" name="mcc_sum" id="mcc_sum" class="formfields" style="width: 3em;"> <span id="countthis">(请输入阿拉伯数字)</span>
+      <input type="hidden" id="n1" name="n1" value="5754">
+      <input type="hidden" id="n2" name="n2" value="1701">
+    </div>
+    
+    
+    <div style="margin-top: 1em; clear: both;">
+      <input id="postcomment" type="submit" class="button" value="提交评论">
+    </div>
+  </div>
+ </div>
+
+</div>
+</form>
+
+<script type="text/javascript">
+	
+	$(function(){
+
+		$('#postcomment').click(function(e){
+			var post_modulecode = $('#post_modulecode').val();
+			var countthis = $('#countthis');
+			var mcc_name = $('#mcc_name').val();
+			
+			if (window.tinyMCE) {
+			  tinyMCE.triggerSave();
+			}
+			
+			var mcc_text = $('#mcc_text').val();
+			
+			var mcc_sum = $('#mcc_sum').val();
+			
+			var mcc_website = $('#mcc_website').val();
+			
+			var n1 = $('#n1').val();
+			var n2 = $('#n2').val();
+			var gbdata = {post_modulecode:post_modulecode, mcc_name:encodeURIComponent(mcc_name), mcc_website:(mcc_website), mcc_text:encodeURIComponent(mcc_text), mcc_sum:mcc_sum, n1:n1, n2:n2};
+			if(mcc_text.trim()==''||mcc_name.trim()==''){
+				countthis.hide(0).css({color:'#5DB0E6'}).html('(请输入姓名和评论)').fadeIn(800);
+				return false;
+			}else if (mcc_sum != 30) {
+				countthis.hide(0).css({color:'#5DB0E6'}).html('(拜托，验证码计算错误)').fadeIn(800);
+				return false;
+			}else{
+				countthis.hide(0).css({color:'#5DB0E6'}).html('(留言添加中，请稍候...)').fadeIn(800);
+				
+				$.post(".", gbdata, function(data){
+					$('#nocomments').fadeOut(200);
+					var tmpurl = 'http://www.gbin1.com';
+					mcc_website = $.trim(mcc_website);
+					if(mcc_website!=''){
+						if(mcc_website.indexOf('http')==0){
+							tmpurl = mcc_website;
+						}else{
+							tmpurl = 'http://' + mcc_website;
+						}
+					}
+					
+					$('<li style="display:none"><div class="commenter"><img width="80" src="/gbin1/admin/modules/comments/user.png" /></div><div class="comment"><h3><a target="_blank" href="' + tmpurl + '">' + mcc_name + '</a>' + '</h3>' + mcc_text + '<div class="includedate">2014-3-13 下午6:03</div><div style="background:#222222;padding:5px;border-left:3px solid #333333;font-weight:normal;color:#5DB0E6;">感谢您的留言，你的留言将会被站长审核后显示，谢谢！</span></div></li>').appendTo($('#comments ol')).slideDown();
+					
+					/*$('#comments ol').append('<li><div class="commenter"><img width="80" src="/gbin1/admin/modules/comments/user.png" /></div><div class="comment"><h3><a target="_blank" href="' + tmpurl + '">' + mcc_name + '</a>' + '</h3>' + mcc_text + '<div class="includedate">2014-3-13 下午6:03</div><div style="background:#222222;padding:5px;border-left:3px solid #333333;font-weight:normal;color:#5DB0E6;">感谢您的留言，你的留言将会被站长审核后显示，谢谢！</span></div></li>');*/
+					countthis.fadeOut(500);
+					$('#mcc_sum').val('');
+				}); 
+				
+			}
+			e.preventDefault();
+		});
+		
+		var delcom = $('.delcomment');
+		var showcom = $('.showcomment');
+		var hidecom = $('.hidecomment');
+		
+		var filename = delcom.data('file');
+		var delId = delcom.data('file');
+		var showId = delcom.data('file');
+		var hideId = delcom.data('file');
+		delcom.click(function(e){
+			var gbdata = {delId:delId};
+			$.post(".", gbdata, function(data){
+				alert('deleted' + filename);
+				delcom.parent('div').find('img').css({border:'5px solid #5DB0E6'});
+			});
+			e.preventDefault();
+		});
+		
+		showcom.click(function(e){
+			var gbdata = {showId:showId};
+			$.post(".", gbdata, function(data){
+				alert('show:' + filename);
+				showcom.html('Done!');
+			});
+			e.preventDefault();
+		});
+		
+		hidecom.click(function(e){
+			var gbdata = {hideId:hideId};
+			$.post(".", gbdata, function(data){
+				alert('hide:' + filename);
+				hidecom.html('Done!');
+			});
+			e.preventDefault();
+		});
+	});
+</script>
+
+
+			
+		</section>
+
+		<aside class="bloglist">
+			阅读选项
+			<ul id="floatingmenu">
+				<li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" id="flipcolor">反色阅读</a></li>
+				<li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" id="zoomfont">字体缩放</a></li>
+				<li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" id="fullscreen">宽屏阅读</a></li>
+			</ul>
+			<div style="clear:both"></div>
+			
+			<div class="blogads" style="margin-bottom:20px">
+	<div style="height:250px;padding:0;margin:0;">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-4879975111677652";
+		/* 250x250 */
+		google_ad_slot = "6576088851";
+		google_ad_width = 250;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+</div>
+
+
+
+
+
+
+
+			
+			目录
+			
+				
+
+
+
+
+
+
+
+
+<ul>
+     <li><a href="http://www.gbin1.com/technology/javautilities/20120423responsivetestingtool">分享一个帮助你在线测试响应式设计的web工具 - Screenqueri.es</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120117superusefulphpsnippetsyouprobablyhaventseen">分享10个你可能不知道但超级好用的PHP代码片段</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120116gettingstartedwithmongodbpart1">Nosql数据库教程之初探MongoDB - 第一部分</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20110920javagenericquicktutorial">Java泛类型（Generics）快速入门</a></li><li><a href="http://www.gbin1.com/technology/javautilities/javaresourcefordevelopers">分享高效java开发者必备的资源列表</a></li><li><a href="http://www.gbin1.com/technology/javautilities/javaoutofmemoryexception">两种常见类型的内存溢出错误 - Java out of memory error</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/index.html">Node.js基础入门实例讲解</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120610curl-introduction">最常用的CURL命令大全</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120720jsoupjquerysnatchpage">使用java的html解析器jsoup和jQuery实现一个自动重复抓取任意网站页面指定元素的web应用</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120806-resource-for-front-end-developer">分享一些前端开发人员必备的工具，脚本和资源</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120419chromepluginforwebdev">18个web开发人员必备的Chrome扩展</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20121113-ios-frameworks-nimbuskit">分享一个文档完整的超棒iOS开发框架（Frameworks) - NimbusKit</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20121022-how-do-they-make-money">一个超棒的帮助你了解科技公司如何盈利的网站 - rcs.seerinteractive.com</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120411sqlinjectionguide">分享一个帮助你有效避免SQL Injection攻击的在线手册 - bbobby-tables.com</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20210306dirtymarkup">分享一个在线代码美化工具 - Dirty Markup</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120930-google-webfont-by-bestwebfonts">超棒的Google web字体查询工具 - Best Web Fonts</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20121101-responsivator-view-websites-by-different-screen-size">帮助你在不同尺寸屏幕下浏览网站效果的工具 - Responsivator</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120207programminginsas">SAS编程入门介绍</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120206gettingstartedwithmongodbpart2">Nosql数据库教程之初探MongoDB - 第二部分</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120411bestcodesnipplet">分享9个最棒的代码片段资源网站</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120727-best-code-editor">究竟什么是开发人员眼中最好的代码编辑器？</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120630-webdev-tool-brackets">Adobe开发的基于web的开源代码编辑器 - Brackets</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120902pdfsketchsheets">【简报】创建线框结构的PDF格式草图表</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120312browserrelease">主流浏览器的版本发布历史大全 - 了解IE, Firefox, Chrome, Safari, Opera浏览器的历史</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120618web-tool-for-color-contrast">分享一个帮助你检测网站颜色对比度的在线web工具 - checkmycolours</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120622wordpress34newfeature">最新的wordpress3.4都有什么新特性</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120730-php-infinite-social-wall">Pinterest.com界面风格的社交展示web应用：Infinite-social-wall</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120330newprogramminglanguagehaxe">超酷编程语言：HaXe - One language, everywhere</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20130424-performance-for-website-browserdiet">帮助你优化前端性能的工具类网站 - browserdiet</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120220usefulwebsitestolearnhowtocodequickly">分享8个帮助你学习快速编程的实用网站</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120701-webmatrix2">微软的新一代web开发工具 - WebMatrix2</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120409freshiphonetutorials">分享10个最新的iphone开发教程</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120726-7-useful-php-functions">PHP技巧分享：7个非常适合初学者使用的实用PHP方法</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120409fiddlesalad">一个HTML/CSS/Javascript的在线开发工具 - Fiddle Salad</a></li><li><a href="http://www.gbin1.com/technology/javautilities/20120817-wirefy">【简报】Wirefy-响应式构架的框架工具</a></li>
+    </ul>
+
+			
+			
+			
+			
+			<iframe width="100%" height="800" class="share_self" frameborder="0" scrolling="no" src="./Node.js基础入门实例讲解_files/index.html"></iframe>
+		</aside>
+		<!-- google_ad_section_end -->
+		
+		<section class="ads">
+
+			<span class="advertise">
+	<a href="http://www.gbin1.com/" style="text-decoration:none;">GBin1官方QQ群</a>
+</span>
+<div id="qqgroup" style="margin-bottom:10px"></div>
+
+<span class="advertise">
+	<a target="_blank" href="http://www.gbtags.com/" style="text-decoration:none;">加入极客标签</a>
+</span>
+
+<a href="http://www.gbtags.com/" target="_blank"><div id="gbtagslogo"></div></a>
+
+<style>
+#gbtagslogo{
+	width: 125px;
+	height: 125px;
+	border-radius: 5px 5px 5px 5px;
+	margin:10px;
+	padding: 0;
+    background: url("http://www.gbtags.com/gb/networks/themes/img/logo_small.jpg") no-repeat scroll 50% 50% #404040;
+}
+
+#gbtags:hover {
+    background: url("http://www.gbtags.com/gb/networks/themes/img/logo_small_hover.jpg") no-repeat scroll 50% 50% #404040;
+}
+</style>
+
+
+
+
+		</section>
+		<!-- weibo.com widget -->
+	</div> 
+</div>
+</div>
+<footer>
+	<div class="footwrap">
+		<div class="col4 container">	
+			<section style="margin-left:120px;margin-top:75px"><a href="http://weibo.com/1740310620/profile" target="_blank"><!--<h3 style="margin-left:0;color:#fff">访问我的微博...</h3>--><img src="./Node.js基础入门实例讲解_files/weibo.png"></a></section>
+			<section>
+				<img src="./Node.js基础入门实例讲解_files/about.png"><!--关于-->
+				<ul>
+					<li><a href="http://www.gbin1.com/portfolio/about/">关于我们</a></li>
+					<li><a href="http://www.gbtags.com/" target="_blank">极客标签</a></li>
+					<li><a href="http://www.gbin1.com/portfolio/friendlinks/index.html">友情链接</a></li>
+					<li><a href="http://weibo.com/1740310620/profile">新浪微博</a></li>
+					<li><a href="http://www.triplifes.com/">互联旅途</a></li>
+				</ul>
+			</section>
+			<section>
+				<img src="./Node.js基础入门实例讲解_files/subscribe.png"><!--订阅-->
+				<ul>
+					<li><a href="http://feed.feedsky.com/GBin1">GBin1订阅</a></li>
+					<li><a href="http://list.qq.com/cgi-bin/qf_invite?id=3a04fd5eecec76c265e2c2daf4a68483bac85c55d333c17e">Email订阅</a></li>
+					<li><a href="http://m.gbin1.com/">手机阅读</a></li>
+					<li><a href="http://o.sdo.com/dy.ext?o=TXpFMU9UQT0K%0A">盛大微杂志</a></li>
+				</ul>
+			</section>
+			<section>
+				<!--合作-->
+				<ul>
+					<li><a href="http://www.gbin1.com/portfolio/submitarticle">文章投递</a></li>
+					<li><a href="mailto:people2net@gmail.com">广告合作</a></li>
+				</ul>
+			</section>
+			<div class="copyright">
+				&#169; Copyright 2010 · All Rights Reserved&nbsp;|&nbsp;<a href="http://www.miitbeian.gov.cn/">京ICP备11048772号-1</a>&nbsp;|&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">署名-非商业性使用-相同方式共享 2.5 中国大陆 (CC BY-NC-SA 2.5)</a>&nbsp;| <a href="http://www.gbin1.com/">GBin1中文互联</a>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+	<div style="right:10px;width: 1190px;position:relative;margin:0 auto;">
+		<div style="text-align:right;padding-top:0px;color:#666">
+			除特别声明外, 本站所有内容皆为原创，且基于创作共享的 署名-非商业使用-相同方式分享 2.5 协议发布. 转载时请务必以超链接形式标明文章出处和作者信息					
+		</div>
+	</div>
+</footer><style type="text/css" id="yzsfm0" class="i27fe1s">
+	.h20a1by {
+			border-radius:2px;
+			box-shadow:0 0 7px rgba(0,0,0,0.4);
+			position:absolute;
+			top:376px;
+			left:404px;
+			margin-bottom:100px;
+			background:#fff;
+			z-index:2147483646;
+			display:none;
+			font:14px/1.5 arial,\5b8b\4f53,sans-serif;
+	}
+	
+	.h20a1by .xaq4bp {}
+
+    .h20a1by .te0lld {
+        background:#fff;
+        position:absolute;
+        height:8px;
+		width:8px;
+        margin-left:-3px;
+        -webkit-transform:rotate(45deg);
+		transform:rotate(45deg);
+		left:20%;
+    }
+	
+	.h20a1by.hqbn1n .te0lld {
+		box-shadow : -1px -1px 2px rgba(0, 0, 0,0.4);
+        top:-5px;    
+	}
+	
+	.h20a1by.i94ivy .te0lld {
+        bottom:-5px;
+		box-shadow : 1px 1px 2px rgba(0, 0, 0,0.4);
+	}
+	
+	.h20a1by.uusx52 .te0lld{
+		left:50%;
+	}
+	
+	.ek81gs {
+		font-style:normal;
+		font-size:23px;
+		position:relative;
+		top:3px;
+	}
+	
+	.vgd7iv {
+		width:170px;
+		padding:20px;
+		font-size:14px;
+	}
+	
+	.vgd7iv .p140l39 {
+		text-decoration:none;
+		font-size:14px;
+		color:#999;
+		float:right;	
+		position:relative;
+		top:5px;
+	}
+	
+	.xaq4bp {
+		overflow:hidden;
+	}
+	
+	.p140l39:hover {
+		color:#1e90ff;
+	}
+	
+	.p1rdnl {
+			width:120px;
+			height:152px;
+			padding:20px;
+    }
+	.p1rdnl .mvwx3q {
+			 margin-bottom:10px;
+    }
+	
+	.p1rdnl .xaq4bp span{
+		color:red;
+	}
+</style>
+
+<div class="h20a1by hqbn1n vgd7iv">
+		<div class="te0lld"></div>
+		<div class="xaq4bp">
+		同步商品到手机一淘收藏夹， 手机购买更优惠！
+		<a class="p140l39" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#">我知道了<i class="ek81gs">×</i></a>
+	</div>
+</div>
+
+<div class="h20a1by i94ivy uusx52 p1rdnl">
+		<div class="te0lld"></div>
+		<div class="xaq4bp">
+			<div class="mvwx3q"></div>
+			<div class="t1mdv95">手机购买省<span>13</span>元</div>
+		</div>
+</div>
+
+
+<!-- google and baidu code -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd999331ad5ea0c0930f3aa7c3bda9fc1' type='text/javascript'%3E%3C/script%3E"));
+</script><style id="y1mm3fd" class="i27fe1s y1mm3fd">
+	.q1cv7ax {
+		width:420px;
+		height:420px;
+		border-radius:2px;
+		box-shadow:0 0 7px rgba(0,0,0,0.4);
+		background:#fff;
+		position:fixed;
+		left:50%;
+		top:50%;
+		margin-left:-210px;
+		margin-top:-210px;
+		z-index:2147483646;
+		display:none;
+		font:14px/1.5 arial,\5b8b\4f53,sans-serif;
+	}
+	.i10ui9a {
+		height:52px;
+		border-bottom:solid 1px #e4e4e4;
+		padding:20px;
+		font-size:20px;
+		font-weight:400;
+		position:relative;
+	}
+	.i10ui9a img {
+		float:left;
+		margin-right:15px;	
+	}
+	
+	.v10uj5i {height:227px;font-size:14px;padding:20px;}
+	.v10uj5i .h1qv4gy {
+		float:left;
+		margin-right:20px;
+		margin-top:-6px;
+	}
+	
+	.v10uj5i .dxjb2s {
+		margin-top:10px;
+		margin-bottom:25px;
+	}
+	.v10uj5i span {color:red;}
+	
+	.n103ghb {
+		background-color:#e9e9e9;
+		height:20px;
+		padding:20px;
+		border-bottom-right-radius:2px;
+		border-bottom-left-radius:2px;
+	}
+	
+	.n103ghb label {
+		background:url(chrome-extension://keigpnkjljkelclbjbekcfnaomfodamj/assets/images/qrcode/check.png)no-repeat 0 1px;
+	}
+	
+	.n103ghb label.selected {
+		background:url(chrome-extension://keigpnkjljkelclbjbekcfnaomfodamj/assets/images/qrcode/checked.png)no-repeat 0 0;
+	}
+	
+	.n103ghb label input {
+		opacity:0;
+		margin-right:10px;
+	}
+	
+	.i10ui9a .ek81gs {
+		position:absolute;
+		right:10px;
+		top:5px;
+		font-size:24px;
+		text-decoration:none;
+		color:#b3b3b3;
+	}
+	.i10ui9a a {
+		color:#377bee;
+	}
+</style>
+
+
+	<div class="q1cv7ax">		
+			<div class="i10ui9a"><img src="chrome-extension://keigpnkjljkelclbjbekcfnaomfodamj/assets/images/qrcode/icon.png">已成功收藏到<a href="http://ruyi.taobao.com/my/want">一淘收藏夹</a><br>从手机一淘收藏夹购买更优惠<a class="ek81gs" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#">×</a></div>
+			<div class="v10uj5i">
+				<img class="h1qv4gy" src="chrome-extension://keigpnkjljkelclbjbekcfnaomfodamj/assets/images/qrcode/msg.png">
+				扫码安装一淘客户端
+				<div class="dxjb2s"><img src="chrome-extension://keigpnkjljkelclbjbekcfnaomfodamj/assets/images/qrcode/etaoqr.png" width="116" height="116"></div>
+				安卓手机扫码初装，<br> 登录后送<span>50</span>个集分宝
+			</div>
+			<div class="n103ghb"><label><input id="no-tips" type="checkbox">不再提示</label></div>
+	</div>
+	
+
+<script src="http://hm.baidu.com/h.js?d999331ad5ea0c0930f3aa7c3bda9fc1" type="text/javascript"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19118450-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end of google and baidu code --> 
+
+<div id="msgwrap" style="width: 350px; bottom: 20px;">
+		<span id="title">今日推荐</span><a id="msgclose" href="http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/#" style="background-image: url(http://www.gbin1.com/gbin1/themes/gbin1_3column/images/x_icon.png);">&nbsp;</a>
+		<div id="latest"><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/technology/jquerytutorial/20140311-code-replayer-dribbble-shots">前端代码回放：jQuery实现的dribbble最受欢迎作品集瀑布流效果</a>
+  </h3><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/technology/html/20140301-code-replayer-html5-game-by-phaser">前端代码回放：使用Phaser开发一款HTML5网页版本的flappybird</a>
+  </h3><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/technology/css/20140227-code-replayer-css3-animation">前端代码回放：CSS3基础动画入门 - 八种基础动画效果</a>
+  </h3><h3 class="includetitle" style="display: block;">
+    <a href="http://www.gbin1.com/internet/news/20131223-website-for-programme-learning">超棒的五个在线学习web编程的网站</a>
+  </h3><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/technology/jqueryplugins/20131216-25-super-cool-scroll-plugin">25个帮助大家设计超棒滚动体验的jQuery插件</a>
+  </h3></div>
+</div>
+
+
+<div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 125px; right: 0px; opacity: 1; cursor: pointer;"><img src="./Node.js基础入门实例讲解_files/scrolltop.png"></div></body></html>

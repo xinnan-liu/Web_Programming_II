@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<title>Transform test</title>
+		<style>
+			body {
+				background-color: lightgrey;
+			}
+			section {
+				width: 90%;
+				margin: auto;
+				border: 1px solid black;
+				background-color: white;
+				padding: 10px;
+				border-radius: 10px;
+			}
+			article {
+				color: white;
+				position: relative;
+				width: 6em;
+				height: 2em;
+				margin: 10px auto 10px 20px;
+				text-align: justify;
+				background-color: red;
+				box-shadow: 5px 5px 5px grey;
+				padding: 10px;
+				border-radius: 5px;
+				-moz-transform: skew(-30deg, 0deg);
+				-o-transform: skew(-30deg, 0deg);
+				-ms-transform: skew(-30deg, 0deg);
+				-webkit-transform: skew(-30deg, 0deg);
+				transform: skew(-30deg, 0deg);
+				-webkit-transition: all 2s ease;
+				transition: all 2s ease;
+				overflow: hidden;
+			}
+			article:hover {
+				color: black;
+				position: relative;
+				width: 90%;
+				height: 10em;
+				background-color: aqua;
+				box-shadow: 8px 8px 8px darkgrey;
+				-moz-transform: none;
+				-webkit-transform: none;
+				-o-transform: none;
+				-ms-transform: none;
+				transform: none;
+				-webkit-transition: all 2s ease;
+				transition: all 2s ease;
+				overflow: scroll;
+			}
+			article > h1
+			{
+				margin: 2px auto 0px 10px;
+			}
+			article > p
+			{
+				-webkit-transition: all 2s ease;
+				transition: all 2s ease;
+				//text-overflow: ellipsis;
+			}
+			article:hover > p
+			{
+				-moz-transform: none;
+				-webkit-transform: none;
+				-o-transform: none;
+				-ms-transform: none;
+				transform: none;
+				-webkit-transition: all 2s ease;
+				transition: all 2s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<h1>Some cool effects</h1>
+			<article>
+				<h1>Title 1</h1>
+				<p>Some text goes here. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+			<article>
+				<h1>Title 2</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+			<article>
+				<h1>Title 3</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+			<article>
+				<h1>Title 4</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+		</section>
+	</body>
+</html>
+

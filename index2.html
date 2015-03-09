@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>fun with sockets</title>
+       
+    </head>
+    <body>
+    
+        <h1>Hello class</h1>
+        <p id="theP"></p>
+        
+
+        <form name="theForm">
+
+            <select id="eventType" name="eventType">
+            
+                <option value="Goodbye">Goodbye</option>
+                <option value="Test">Test</option>
+            </select>
+            <input type="text" id="content" placeholder="Input your socket message here" required max=50 size=50 />
+            <button onclick="sendEvent()">Send</button>
+        </form>
+        
+        
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:52123');
+            socket.on('hooray', function(data) {
+               document.getElementById("theP").textContent = data;
+                
+            });	
+            //socket.emit('some event', {data: 'yay', from: 'me'});
+            
+            
+            socket.on('Hello',function(data_{
+                                        
+                                        });
+            function sendEvent()
+            {
+                var event=document.theForm.eventType.options[document.theForm.eventType.selectedIndex].value;
+                var content=document.theForm.text.value;
+                socket.emit(event,content);
+            }
+        </script>
+    </body>
+</html>

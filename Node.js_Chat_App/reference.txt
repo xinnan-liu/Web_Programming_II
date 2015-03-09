@@ -1,0 +1,15 @@
+http://www.tuicool.com/articles/a6NJB3
+
+http://superisaac.iteye.com/blog/1284195
+
+http://blog.csdn.net/linchunhua/article/details/8530733
+
+http://cnodejs.org/topic/51efdcfff4963ade0ee69514
+
+https://github.com/nswbmw/N-chat/blob/master/public/javascripts/jquery.cookie.js
+
+http://blog.fens.me/nodejs-socketio-chat/
+
+http://www.cnblogs.com/meteoric_cry/archive/2012/07/26/2610792.html
+
+http://js8.in/2011/09/29/%E5%9F%BA%E4%BA%8Eexpresssocket-io%E7%9A%84nodejs%E8%81%8A%E5%A4%A9%E5%AE%A4/

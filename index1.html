@@ -1,0 +1,35 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<style type="text/css"> 
+* { margin:0; padding:0;} 
+body { font-size:12px;} 
+p{ margin: 5px;} 
+.box{ padding: 10px;} 
+</style> 
+<!-- 引入jQuery --> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+$(document).ready(function(){
+    $("button").click(function(){
+        $.ajax({
+          type: "GET",
+          url: "2.php",
+          data: {id:"123456"},
+          dataType: "json",
+           success: function(msg)
+           {  
+              $("#returncontent2").html(msg.message2);
+           } 
+    });
+    });
+});
+</script>
+<div id="returncontent">这是message要显示的地方</div>
+<div id="returncontent1">这是message1要显示的地方</div>
+<div id="returncontent2">这是message2要显示的地方</div>
+<button type="button">按钮</button>
+    </body> 
+</html> 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="input"></input>    
+<p>timer: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+<br /><br />
+
+<script>
+var w;
+  
+     if(localStorage.getItem("counter")){
+     
+        document.getElementById("result").innerHTML= localStorage.getItem("counter");
+      
+    }else{
+         document.getElementById("result").innerHTML=60;
+    }
+    
+function startWorker()
+{
+
+    
+if(typeof(Worker)!=="undefined")
+  {
+  if(typeof(w)=="undefined")
+  {
+  w=new Worker("demo_workers.js");
+  }
+  w.onmessage = function (event) {
+    document.getElementById("result").innerHTML=event.data;
+      localStorage.setItem("counter", event.data);
+      
+    };
+  }
+else
+  {
+  document.getElementById("result").innerHTML="Sorry, your browser does not support Web Workers...";
+  }
+}
+
+function stopWorker()
+{ 
+  
+w.terminate();
+
+}
+</script>
+
+</body>
+</html>

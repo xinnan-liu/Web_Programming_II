@@ -1,0 +1,69 @@
+<html>  
+  <head>  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>  
+    <style type="text/css">  
+      #content { width: 600px; margin: 0 auto; }  
+      textarea { width: 400px; height: 40px;}  
+    </style>  
+    <script>  
+      $(document).ready(function() {  
+         var socket = io.connect();  
+
+  socket.on('connect',function(){
+
+  
+socket.on('join', function (data) {  
+        status('Client ' + data.cid + ' joins!');  
+    });  
+  
+socket.on('broadcast', function (name,words) {  
+        $('#thread').append($('<div>').html('' + name+ ' says: ' + words));  
+    });  
+});
+  
+
+
+
+$('#send').click(function() {  
+  
+   //alert('hello');
+  
+  event.preventDefault();
+
+    var words = $('#text').val(),
+        name=$('#nickname').val();
+          
+       socket.emit('message',name,words);
+        $('#text').val('');  
+        $('#nickname').val('');
+    
+} ); 
+
+function status(w) {  
+    $('#status').html(w);  
+}  
+      });  
+    </script>  
+  </head>  
+  <body>  
+    <div id="content">  
+      <h1>Micro Chat</h1>  
+      <div id="status"></div>  
+      <div id="thread">  
+      </div>  
+      <div>  
+        <label for="Nickname">NickName:</label>
+        <br>
+          <input type="input" id="nickname" name="nickname"/>
+          <br>
+          <label for="Msg">Msg:</label>
+          <br>
+        <textarea id="text" name="text"></textarea>  
+      </div>  
+      <div>  
+        <button id="send" onclick="myFunction()">Send</button>  
+      </div>  
+    </div>  
+  </body>  
+</html>  

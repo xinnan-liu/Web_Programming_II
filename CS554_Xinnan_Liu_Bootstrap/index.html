@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			Bootstrap Assignment
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body data-spy="scroll" data-target=".navbar">
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="#">
+						Xinnan Liu
+					</a>
+					<ul class="nav nav-tabs" id="myTab">
+						<li class="active">
+							<a href="#one">
+								Hello
+							</a>
+						</li>
+						<li>
+							<a href="#two">
+								Text
+							</a>
+						</li>
+						<li>
+							<a href="#three">
+								Contact
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="content">
+				<div id="one">
+					<div class="hero-unit">
+						<h1>
+							Hello, bootstrap!
+						</h1>
+						<p class="text-info">
+							This is a simple assignment for using bootstrap tech.
+						</p>
+						<p>
+							<a class="btn btn-primary btn-large">
+								Do not click me!
+							</a>
+						</p>
+					</div>
+				</div>
+				<div id="two">
+					<div class="alert alert-success">
+						Well done! You successfully read this important alert message.
+					</div>
+					<div class="alert alert-info">
+						Heads up! This alert needs your attention, but it's not super important.
+					</div>
+					<div class="alert alert-warning">
+						Warning! Better check yourself, you're not looking too good.
+					</div>
+					<div class="alert alert-danger">
+						Oh snap! Change a few things up and try submitting again.
+					</div>
+				</div>
+				<div class="progress progress-striped active">
+					<div class="bar" style="width: 80%;">
+						80% completed
+					</div>
+				</div>
+			</div>
+			<div id="three">
+				<h3>
+					Contact
+				</h3>
+				<address>
+					<strong>
+						<i class="icon-home">
+						</i>
+						Xinnan's Home
+					</strong>
+					<br>
+					40 Newport Parkway, Apt # 3106
+					<br>
+					Jersey City, NJ 07310
+					<br>
+					<abbr title="Mobile Phone Number">
+						M:
+					</abbr>
+					(201) 565-6990
+					<br>
+					<strong>
+						Xinnan Liu
+					</strong>
+					<br>
+					<a href="mailto:#">
+						<i class="icon-envelope">
+						</i>
+						shinnon.ryu@gmail.com
+					</a>
+				</address>
+			</div>
+		</div>
+		</div>
+		<script src="http://code.jquery.com/jquery.js">
+		</script>
+		<script src="js/bootstrap.min.js">
+		</script>
+		<script>
+			$(function() {
+				//$('#myTab').tab('show');
+				$('#navbar').scrollspy();
+			});
+		})
+		</script>
+	</body>
+
+</html>

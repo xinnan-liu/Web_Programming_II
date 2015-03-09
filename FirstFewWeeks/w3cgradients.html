@@ -1,0 +1,140 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Demo background and gradients</title>
+<style type="text/css">
+div{
+	width:100px;
+	height:100px;
+	float:left;
+	margin:20px;
+	border:1px solid gray;
+	background:silver;
+}
+div:nth-child(1){
+	background-image:-moz-linear-gradient(top, tomato, gold);
+	background-image:-webkit-linear-gradient(top, tomato, gold);
+	background-image:-o-linear-gradient(top, tomato, gold);
+}
+div:nth-child(2){
+	background-image:-moz-linear-gradient(60deg, black, orange 25%, gold 50%, #22aeff 75%, #fff);
+	background-image:-webkit-linear-gradient(60deg, black, orange 25%, gold 50%, #22aeff 75%, #fff);
+	background-image:-o-linear-gradient(60deg, black, orange 25%, gold 50%, #22aeff 75%, #fff);
+}
+div:nth-child(3){
+	background-image:-moz-radial-gradient(blue, green);
+	background-image:-webkit-radial-gradient(blue, green);
+	background-image:-o-radial-gradient(blue, green);
+	border-radius:50%;
+}
+div:nth-child(4){
+	background-image:-moz-radial-gradient(top right, blue, green, gold);
+	background-image:-webkit-radial-gradient(top right, blue, green, gold);
+	background-image:-o-radial-gradient(top right, blue, green, gold);
+	border-radius:50%;
+}
+div:nth-child(5){
+	background-image:-moz-linear-gradient(40deg, tomato, gold);
+	background-image:-webkit-linear-gradient(40deg, tomato, gold);
+	background-image:-o-linear-gradient(40deg, tomato, gold);
+	background-size:50px 20px;
+}
+div:nth-child(6){
+	background-image:-moz-linear-gradient(40deg, tomato, gold);
+	background-image:-webkit-linear-gradient(40deg, tomato, gold);
+	background-image:-o-linear-gradient(40deg, tomato, gold);
+	background-size:10px 70px;
+}
+div:nth-child(7){
+	/*Different syntaxes to do the same thing */
+	background-image:-moz-linear-gradient(-90deg, yellow, blue);
+	background-image:-webkit-linear-gradient(-90deg, yellow, blue); /*only this one works on webkit*/
+	background-image:-o-linear-gradient(-90deg, yellow, blue);
+	
+	background-image:-moz-linear-gradient(to bottom, yellow 0%, blue 100%);
+	background-image:-o-linear-gradient(to bottom, yellow 0%, blue 100%);
+}
+div:nth-child(8){
+	/*Different syntaxes to do the same thing */
+	
+	background-image:-moz-linear-gradient(45deg, tomato, forestgreen, steelblue);
+	background-image:-webkit-linear-gradient(45deg, tomato, forestgreen, steelblue); /*only this one works on webkit*/
+	background-image:-o-linear-gradient(45deg, tomato, forestgreen, steelblue);
+	
+	background-image:-moz-linear-gradient(to top right, tomato, forestgreen, steelblue);
+	background-image:-o-linear-gradient(to top right, tomato, forestgreen, steelblue);
+}
+
+div:nth-child(9){
+	background-image:-moz-radial-gradient(5em circle at top left, yellow, blue); /*specex19 mais marche pas*/
+	background-image:-moz-radial-gradient(farthest-side at left bottom, red, yellow 50px, green); /*specex21 mais marche pas*/
+	
+	background-image:-moz-radial-gradient(closest-side at 20px 30px, red, yellow, green); /*specex22 mais marche pas*/
+	background-image:-moz-radial-gradient(20px 30px at 20px 30px, red, yellow, green); /*specex22 mais marche pas*/
+	
+	background-image:-moz-radial-gradient(20px 30px, circle contain, red, yellow, green); 
+	background-image:-moz-radial-gradient(20px 30px, 20px 20px, red, yellow, green);
+	background-image:-webkit-radial-gradient(20px 30px, 20px 20px, red, yellow, green);
+	background-image:-o-radial-gradient(20px 30px, 20px 20px, red, yellow, green);
+	
+	
+	 /* idem que precedent ok aussi sur FF*/
+}
+div:nth-child(10){
+	/*Different syntaxes to do the same thing */
+	background-image:-moz-radial-gradient(yellow, green);
+	background-image:-moz-radial-gradient(ellipse at center, yellow 0%, green 100%);
+	background-image:-moz-radial-gradient(farthest-corner at 50% 50%, yellow, green);
+	background-image:-moz-radial-gradient(circle, yellow, green);
+	background-image:-moz-radial-gradient(red, yellow, green);
+	background-image:-webkit-radial-gradient(red, yellow, green);
+	background-image:-o-radial-gradient(red, yellow, green);
+}
+div:nth-child(11){
+	background-image:-moz-repeating-linear-gradient(tomato, teal 20px, tomato 40px);
+	background-image:-webkit-repeating-linear-gradient(tomato, teal 20px, tomato 40px);
+	background-image:-o-repeating-linear-gradient(tomato, teal 20px, tomato 40px);
+}
+div:nth-child(12){
+	background-image:-moz-repeating-radial-gradient(tomato, teal 20px, tomato 40px);
+	background-image:-webkit-repeating-radial-gradient(tomato, teal 20px, tomato 40px);
+	background-image:-o-repeating-radial-gradient(tomato, teal 20px, tomato 40px);
+}
+div:nth-child(13){
+	background-image:-moz-repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%); /*specex23 mais marche pas*/
+	background-image:-moz-repeating-radial-gradient(20px 30px, circle contain, red, yellow, green 100%, yellow 150%, red 300%);
+	background-image:-webkit-repeating-radial-gradient(20px 30px, circle contain, red, yellow, green 100%, yellow 150%, red 300%);
+	background-image:-o-repeating-radial-gradient(20px 30px, circle contain, red, yellow, green 100%, yellow 150%, red 300%);
+}
+div:nth-child(14){
+	background-image:-moz-linear-gradient(to right, red, transparent, blue);
+	background-image:-webkit-linear-gradient(360deg, red, transparent, blue);
+	background-image:-o-linear-gradient(to right, red, transparent, blue);
+}
+div:nth-child(15){
+	background-image:-webkit-repeating-linear-gradient(red 0px, white .1px, blue .2px); /*specex24 do not work on Firefox, Opera */
+}
+
+</style>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

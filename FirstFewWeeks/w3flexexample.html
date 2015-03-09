@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<title>Flex Box Example</title>
+<style>
+#deals {
+	width: 75%;
+	border: 1px solid black;
+	margin: 10px auto;
+	display:  flex;        /* Flex layout so items have equal height  */
+	 flex-flow: row wrap;  /* Allow items to wrap into multiple lines */
+//	overflow: hidden;
+	 justify-content: center;
+}
+#deals > section {
+	margin: 10px auto;
+	border: 1px solid red;
+	display:  flex;        /* Lay out each item using flex layout */
+	 flex-flow: column nowrap;    /* Lay out item's contents vertically  */
+//-webkit-writing-mode: vertical-rl;
+	 flex: 1 1 250px;
+}
+#deals > section > img { 
+	 order: -1;            /* Shift image before other content (in visual order) */
+	 align-self: center;   /* Center the image cross-wise (horizontally)         */
+    height: 100px;
+}
+#deals > section > button {
+	margin-top: auto;     /* Auto top margin pushes button to bottom */
+//    align-self: stretch; /*default */
+}
+
+.thebest {
+	 order: -1;
+	 flex: auto;
+}
+
+.thebest > article {
+	-webkit-columns: 2;
+	-webkit-column-rule: 1px solid blue;
+}
+    
+#st {
+visibility: collapse;        
+}
+</style>
+	</head>
+	<body>
+<section id='deals'>
+  <section id="st">
+    <h1>Stormtroopers!</h1>
+    <article class="content">
+    <p>Will always miss their target! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+    </article>
+    <ul>
+      <li>White armor</li>
+      <li>Blaster rifle</li>
+      <li>Bad aim</li>
+    </ul>
+    <img src='./st.jpg' alt='StormTroopers are cool.'>
+    <button>Hire now!</button>
+  </section>
+  <section class="thebest">
+     <h1>Wookiees!!</h1>
+    <article class="content">
+    <p>They are hairy! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+    </article>
+    <ul>
+      <li>Loyal</li>
+      <li>Smart</li>
+      <li>From Kashyyyk</li>
+    </ul>
+    <img src='./chewie.jpg' alt='Chewie is cooler.'>
+    <button>HIRE NOW</button>
+   </section>
+  <section class="sux">
+     <h1>Jawas!!</h1>
+    <article class="content">
+    <p>They steal your droids! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Will always miss their target! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </article>
+    <ul>
+      <li>Tiny</li>
+      <li>Tech savvy</li>
+      <li>Utini!</li>
+    </ul>
+    <img src='./jawa.jpg' alt='Utini!'>
+    <button>HIRE NOW</button>
+   </section>
+</section></body>

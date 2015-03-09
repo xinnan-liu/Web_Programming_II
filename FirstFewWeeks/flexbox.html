@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<title>Flex Box Example</title>
+		<style>
+        
+			body {
+				display: /* -webkit- */flex;
+				/* -webkit- */flex-flow: column nowrap;
+			}
+			#center {
+				display: /* -webkit- */flex;
+				/* -webkit- */order: 1;
+				/* -webkit- */flex-flow: row nowrap;
+				border: 1px solid black;
+			}
+			#left {
+				/* -webkit- */order: 1;
+				border: 1px solid red;
+			}
+			#right {
+				/* -webkit- */order: 3;
+				border: 1px solid purple;
+			}
+			#center > section {
+				/* -webkit- */order: 2;
+				margin: auto;
+				/* -webkit- */flex: 1;
+				border: 1px solid green;
+			}
+			header {
+				border: 1px solid yellow;
+				/* -webkit- */order: 0;
+			}
+			footer {
+				border: 1px solid blue;
+				/* -webkit- */order: 2;
+			}
+			nav > ul {
+				list-style-type: none;
+				display: /* -webkit- */flex;
+				/* -webkit- */flex-flow: row nowrap;
+			}
+			nav > ul > li {
+				color: black;
+				margin: 0;
+			}
+			li:first-child:after, li:first-child + li:after {
+			  content: " |  ";
+			  white-space: pre;
+			}
+			nav > ul > li:last-of-type {
+				margin-left: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="center">
+			<section>
+				<h1>Your content here</h1>
+				<P>Blah blah</P>
+			</section>
+			<nav id="right">Right nav</nav>
+			<nav id="left">Left nav</nav>
+		</div>
+		<header><p>This is a header</p>
+			<nav>
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+					<li>Item 4</li>
+				</ul>
+			</nav>
+		</header>
+		<footer>And the footer</footer>
+	</body>
+</html>
+
+ 

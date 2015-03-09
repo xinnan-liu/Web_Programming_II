@@ -1,0 +1,208 @@
+@import url(http://fonts.googleapis.com/css?family=Fruktur);
+@import url(http://fonts.googleapis.com/css?family=The+Girl+Next+Door);
+
+* {
+
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/*h2~*
+{
+	display: none;
+}
+*/
+div#content {
+	width: 75%;
+	margin: 10px auto;
+	padding: 10px;
+	border: solid 1px black;
+	border-radius: 10px;
+	background-color: lightgrey;
+	background-clip: border-box;
+}
+
+P {
+	font-family: fantasy;
+}
+
+Section P {
+	font-size: 1.5em;
+}
+
+Section>P {
+	text-indent: 50px;
+	text-align: justify;
+	white-space: normal;
+}
+
+
+Section>P::first-letter {
+	font-family: Serif;
+	font-size: 4em;
+}
+
+
+
+Section>P::first-line {
+    font-family: "The Girl Next Door", cursive;
+	color: blue;
+}
+
+
+section footer p
+{
+	text-transform: Capitalize;
+	color: red;
+}
+
+
+
+h1
+{
+	background-color: rgba(123, 62, 66, 1);
+	text-align:center;
+	width: 75%;
+	padding: 3px;
+	margin: 5px;
+	background-clip: border-box;
+	border: 5px dotted lime;
+	font-size: 3em;
+	text-shadow: 2px 2px 5px #FF0;
+	font-family: 'Fruktur', cursive;
+	color: rgba(10, 11, 135, 0.8);
+	//display: none;
+}
+/*
+:not(P)
+{
+ background-color: yellow;
+}
+*/
+a
+{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+a[href^="http://"]:hover
+{
+	background-color: red;
+	cursor: url('dne.png'), auto;
+}
+
+a[href^="https://"]:hover
+{
+	cursor: url('ok.png'), auto;
+	background-color: green;
+}
+
+a[href$=".edu/"]
+{
+	font-family: Verdana;
+}
+
+
+a[href*=".cs."]
+{
+	text-decoration: underline;
+}
+
+
+
+a[href^="http://"]:hover:after
+{
+	margin: 5px;
+	border: solid 1px black;
+	border-radius: 3px;
+	background-color: white;
+	text-decoration: none;
+	content: "Use at your own risk!";
+}
+
+
+
+a[href^="https://"]:hover:after
+{
+	margin: 5px;
+	content: "Your target was: " attr(target) " and you are going to " attr(href);
+}
+
+
+table
+{
+	border: solid 1px black;
+}
+
+
+th:first-child
+{
+	font-size: 2em;
+}
+
+th:last-child
+{
+	font-size: 0.75em;
+}
+
+
+th:nth-child(2)
+{
+	font-size: 1.5em;
+}
+
+
+
+tr:nth-of-type(3n+2)
+{
+	background-color: grey;
+}
+
+
+
+tr:nth-of-type(3n+3)
+{
+	background-color: white;
+}
+
+
+
+td:nth-child(1)
+{
+	font-size: 0.75em;
+}
+
+
+
+td:nth-child(2)
+{
+	font-size: 1em;
+}
+
+
+
+td:nth-child(3)
+{
+	font-size: 1.25em;
+}
+
+
+
+::selection
+{
+	color: rgba(0,0,0,0.3);
+}
+
+
+nav ul
+{
+	list-style-type: none;
+}
+
+
+nav li
+{
+	display: inline;
+}

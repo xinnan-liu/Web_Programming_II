@@ -1,0 +1,20 @@
+http://qianduanblog.com/2993.html
+
+http://cnodejs.org/topic/4f16442ccae1f4aa27001071
+
+http://www.gbin1.com/technology/javautilities/20120904-node-js-for-beginners/
+
+
+
+
+mysql related:
+
+http://stackoverflow.com/questions/19028982/connecting-to-ms-sql-db-with-node-js-functions
+
+http://blog.fens.me/nodejs-mysql-intro/
+
+http://blog.csdn.net/dan_blog/article/details/7259332
+
+http://www.cnblogs.com/macro-cheng/archive/2011/10/25/mysql-001.html
+
+http://blog.csdn.net/msbls5/article/details/12905561

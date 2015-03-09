@@ -1,0 +1,165 @@
+<!doctype>
+<html>
+<head>
+    <title>Flight Puzzle</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>  
+    $(document).ready(function()
+                      {
+                          var size = 0;
+                          var temple = new Array();
+                          var current = 0;
+		                  var jigsaw = new Array();
+                          var table = $('<table></table>');
+				          $('#droppable').prepend(table);
+				            for ( var i = 0; i < 600; i += 150) {
+                                var tr = $('<tr></tr>');
+                                table.append(tr);
+                                for ( var j = 0; j < 400; j += 100, size++) {
+                                    var td = $('<td id="'+size+'"></td>');
+                                    tr.append(td);
+                                }
+                            }              
+                        
+                          var repeat = false;
+				          var rand = new Array(size);
+                          for ( var i = 0; i < size;) {
+                                var temp = Math.floor(Math.random() * size);
+                                for ( var j = 0; j < i; j++) {
+                                    if (rand[j] == temp) {
+                                        repeat = true;
+                                        break;
+                                    }
+                                }
+                                if (repeat)
+                                    repeat = false;
+                                else {
+                                    rand[i] = temp;
+                                    i++;
+                                }
+                          }
+                          
+                          
+                          $("#jigsaw img").draggable(
+                          {
+                                  snap:'td',
+                                  opacity: 0.35,
+                                  revert:"invalid",
+                                  create : function() 
+                                  {
+                                      $(this).data('position', $(this).position())
+					              }
+                          });
+                          
+                       
+                          $('td').droppable(
+                          {
+                                accept : '#jigsaw img',
+                                activate:function(event,ui)
+                                {
+                                      $("td").css("background-color","yellow");
+                                },
+                                deactivate:function(event, ui)
+                                {
+                                      $("td").css("background-color","lightblue");
+                                },
+                                drop: function( event, ui )
+                                {
+                                     
+                                      $("td").css("background-color","lightblue");   
+                                      ui.draggable.addClass("Dropped");
+                                      $(".ready").draggable(
+                                      {
+                                          //snap:true,
+                                          revert:"invalid"
+                                      });
+                                      $(".Dropped").draggable(
+                                      {
+                                          snap:'td',
+                                          revert:"true",
+                                          containment:'table'
+                                      });
+                                    
+                                      if (temple[$(this).attr('id')] != null) {
+							             temple[$(this).attr('id')].animate({
+								            top : 0,
+								            left : 0
+							             },  
+                                      {
+								        duration : 600,
+								        easing : 'easeOutBack'
+							         });
+							         if (temple[$(this).attr('id')].attr('id') == $(this).attr('id'))
+								        current--;
+						              }
+                                      snapToMiddle(ui.draggable, $(this));
+							          if (ui.draggable.attr('id') == $(this).attr('id'))
+							             current++;
+                                      for ( var i = 0; i < size; i++)
+							             if (temple[i] == ui.draggable) {
+								            if (temple[i].attr('id') == i)
+									           current--;
+								            temple[i] = null;
+							             }
+                                    if (current == size) {
+							         alert("You have decrypted the puzzle!!!");
+						            }
+                                    temple[$(this).attr('id')] = ui.draggable;
+                                    $('#progress').html(current);
+                                    
+                                }
+                          }); 
+                    });
+    
+                           
+	function snapToMiddle(dragger, target, op) {
+		var topMove = target.position().top - dragger.data('position').top;
+		var leftMove = target.position().left - dragger.data('position').left;
+		if (op)
+			dragger.css({
+				top : topMove,
+				left : leftMove
+			});
+		else
+			dragger.animate({
+				top : topMove,
+				left : leftMove
+			}, {
+				duration : 600,
+				easing : 'easeOutBack'
+			});
+	}
+</script>
+</head>
+<body>
+<div id="droppable" class="ui-widget-header">
+ 
+</div>
+<div id="origin">
+    <img src="images/origin.jpeg" width="300"/>
+    <div id="status">
+    <span id="progress">0</span>/16 completed</div>
+</div>
+<div id="jigsaw">
+	<img src="images/00.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="0">
+    <img src="images/11.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="5">
+    <img src="images/32.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="14">
+    <img src="images/20.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="8">
+    <img src="images/22.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="10">
+    <img src="images/02.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="2">
+    <img src="images/01.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="1">
+    <img src="images/03.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="3">
+    <img src="images/10.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="4">
+    <img src="images/12.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="6">
+    <img src="images/21.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="9">
+    <img src="images/30.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="12">
+    <img src="images/13.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="7">
+    <img src="images/31.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="13">
+    <img src="images/23.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="11">
+    <img src="images/33.jpeg" width="150" height="100" alt="Puzzle Piece"/ id="15">
+</div>
+
+</body>
+</html>

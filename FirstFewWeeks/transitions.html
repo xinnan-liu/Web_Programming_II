@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<title>Transitions</title>
+		<style>
+			p {
+				font-size: x-large;
+				color: white;
+				text-shadow: 2px 3px 1px black;
+				background-color: blue;
+				border-radius: 5px;
+				padding: 20px;
+				width: 300px;
+			}
+			p:hover {
+				background-color: yellow;
+				color: red;
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+			p.slow {
+				-moz-transition: background-color 5s ease;
+				-o-transition: background-color 5s ease;
+				-ms-transition: background-color 5s ease;
+				-webkit-transition: all 10s cubic-bezier(0.2, 0.8, 0.7, 0.5);
+				transition: background-color 5s ease;
+			}			
+			p.delayed {
+				-webkit-transition: all 5s linear 2s;
+				transition: all 5s linear 2s;
+			}
+		</style>
+	</head>
+	<body>
+		<p>Paragraph with no transition!</p>
+		<p class="slow">Paragraph with slow transition!</p>
+		<p class="delayed">Paragraph with delayed transition!</p>
+	</body>
+</html>
+

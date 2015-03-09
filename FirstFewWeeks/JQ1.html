@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<title>JQuery Examples</title>
+		<style>
+			.yellow {
+				background-color: red;
+				color: yellow;
+				font-variant: small-caps;
+			}
+		</style>
+		<script src="./jquery.js" ></script>
+		<script language="JavaScript" >
+			$(document).ready(function() {
+				$("button#add").click(function() {
+					$("img").each(function() {
+							$(this).wrap("<A href='" + $(this).attr("alt") + "' />");
+						}
+					);				
+				});
+
+				$("button#remove").dblclick(function() {
+					$("img").unwrap();
+				});
+			
+			    $("p").click(function() {
+    				$(this).toggleClass("yellow");
+    			});
+                
+    			$("img").error(function() {
+    				$(this).attr('src', 'chewie.jpg');
+    				$(this).attr('alt', 'http://www.google.com');
+    			});
+                
+    			$("a[href^='http://']").click(function() {
+    				$(this).attr("target", "popup");
+    			});
+    			$("body *").mouseenter(function(){
+    				$("#blah").text("You are in " + $(this).text());
+    			});
+    			
+    			$("a:empty").each(function()
+    			{
+    				var url = $(this).attr("href");
+    				var name = url.substring(url.lastIndexOf("/") + 1);
+    				$(this).text(name);
+    			});
+                
+    			$("a[href^='http://']").append(" NOT SSL!");
+			});
+		</script>
+	</head>
+	<body>
+		<button id="add">Add</button><button id="remove">Remove</button>
+		<P>UTINI! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+
+		<P>UTINI!</P>
+		<img src="jawa.jpg" alt="http://www.stevens.edu" />
+		<img src="juwa.jpg" alt="http://www.stevens.edu" />
+
+		<BR/>
+		<A href="http://www.stevens.edu" ></A>
+		<A href="https://www.gmail.com" ></A>
+		<A href="http://www.stevens.edu/compsci/graduate/masters/ms_coop.html"></A>
+		<div id="blah"></div>
+	</body>
+</html>
+
