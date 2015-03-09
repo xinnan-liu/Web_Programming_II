@@ -1,0 +1,8 @@
+<%- include header %>
+
+<% posts.forEach(function (tag, index) { %>
+    <% if(tag!=''){ %>
+  <a class="btn btn-large btn-info" href="/tags/<%= tag %>"><%= tag %></a>
+    <%}%>
+<% }) %>
+<%- include footer %>
